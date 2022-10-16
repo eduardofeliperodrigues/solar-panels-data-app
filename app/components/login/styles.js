@@ -9,9 +9,9 @@ const styles = StyleSheet.create({
 
   //Nav
   navSunner: {
-    marginBottom: 70,
+    marginBottom: 40,
     borderWidth: 1,
-    marginTop: 50,
+    marginTop: 20,
     marginRight: 40,
     borderRadius: 5,
     backgroundColor: '#27FF7E',
@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
 
   navImage: {
     marginLeft: 36,
+    height: 35,
+    width: 40,
   },
 
   //Img Central
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
   },
 
   avatar: {
-    marginBottom: 50,
+    marginBottom: 30,
     height: 100,
     width: 100,
   },
@@ -64,16 +66,6 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
 
-  ajustarTipoAcesso: {
-    flexDirection: 'row',
-    textAlign: 'center',
-    paddingTop: 10,
-    marginBottom: 30,
-  },
-
-  chkAcesso: {
-    backgroundColor: '#FFFCB0',
-  },
 });
 
 export default styles;

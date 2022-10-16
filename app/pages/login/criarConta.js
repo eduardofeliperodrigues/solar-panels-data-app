@@ -1,10 +1,10 @@
 import { React, useState } from 'react';
-import { Text, View, Image, TextInput, Button } from 'react-native';
+import { Text, View, Image, TextInput, Button, TouchableOpacity } from 'react-native';
 import { CheckBox } from 'react-native-elements';
-import styles from '../../style/login/styles';
+import styles from './styles';
 import DadosAcesso from '../../components/login/dadosAcesso';
 
-function CriarConta() {
+export default function CriarConta() {
   const [email, setEmail] = useState('');
   const [morador, setMorador] = useState(true);
   const [sindico, setSindico] = useState(false);
@@ -16,6 +16,10 @@ function CriarConta() {
   const tipoSindico = () => {
     setSindico(true);
     setMorador(false);
+  };
+
+  const buttonClickedHandler = () => {
+    window.alert('\nemail: ' + email + '\nSindico?  ' + sindico + '\nMorador?  ' + morador);
   };
 
   return (
@@ -52,10 +56,12 @@ function CriarConta() {
             style={styles.chkAcesso}
           />
         </View>
-        <Button title="Criar Conta" />
+        <TouchableOpacity
+          onPress={buttonClickedHandler}
+          style={styles.btnSubmit}>
+          <Text>Create Account</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
-
-export default CriarConta;
