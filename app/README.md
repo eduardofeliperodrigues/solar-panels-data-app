@@ -1,11 +1,21 @@
-# Sample Snack app
+# Sunner
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+Para rodar o projeto é necessário:
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+1 - Baixar e instalar o NodeJs no site https://nodejs.org/ 
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+2 - Instalar o yarn
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
+yarn install
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+3 - Instalar o expo-cli
+
+npm install --global expo-cli
+
+Se deseja testar a aplicação no celular basta baixar o aplicativo da Expo no aparelho
+
+4 - Para rodar o projeto use os comandos yarn start Ou expo start
+
+5 - Após executar o projeto, irá abrir uma interface gráfica onde podemos abrir o projeto por emulador, pela web ou caso tenha instalado o aplicativo Expo go, podemos escanear o QRCode que aparece na tela. Para abrir pelo app Expo go, temos 3 opções disponíveis 1 - Tunnel - caso não esteja na mesma rede, por exemplo o pc na rede cabeada e o celular nos dados móveis 
+2 - LAN - conexão feita pela mesma rede 
+3 - Local
