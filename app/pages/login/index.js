@@ -1,17 +1,30 @@
 import { React, useState } from 'react';
-import { Text, View, Image, TextInput, Button } from 'react-native';
-import styles from '../../style/login/styles';
+import { Text, View, Image, TextInput, Button, TouchableOpacity } from 'react-native';
+import styles from './styles';
 import DadosAcesso from '../../components/login/dadosAcesso';
 
-function Entrar() {
+export default function Login({ navigation }) {
+  const buttonClickedHandler = () => {
+    window.alert('entrar');
+  };
+
   return (
     <View style={styles.container}>
       <DadosAcesso />
       <View style={styles.viewInput}>
-        <Button title="Entrar" />
+        <TouchableOpacity
+          onPress={buttonClickedHandler}
+          style={styles.btnEntrar}>
+          <Text>enter</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.createAccount}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Criar Conta')}
+        >
+          <Text>create account {'>'}</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
-
-export default Entrar;

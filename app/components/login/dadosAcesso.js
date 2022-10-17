@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { Text, View, Image, TextInput, Button } from 'react-native';
-import styles from '../../style/login/styles';
+import styles from './styles';
 
 function DadosAcesso() {
   const [usuario, setUsuario] = useState('');
