@@ -1,25 +1,26 @@
-import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import  Login  from './pages/login/index';
-import  CriarConta  from './pages/login/criarConta'
-
-const Stack = createNativeStackNavigator();
-
+import React from 'react';
+import CriarConta from './pages/login/criarConta';
+import Login from './pages/login/index';
+import telaUser from './pages/telaUser';
+import { View } from "react-native";
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={Login}
-          options={{ headerTintColor: "purple" }}>
-        </Stack.Screen>
-        <Stack.Screen name="Criar Conta" component={CriarConta}
-          options={{ headerTintColor: "purple" }}>
-        </Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Minha Conta">
+          <Stack.Screen name="Login" component={Login}
+            options={{ headerTintColor: "purple" }}>
+          </Stack.Screen>
+          <Stack.Screen name="Criar Conta" component={CriarConta}
+            options={{ headerTintColor: "purple" }}>
+          </Stack.Screen>
+          <Stack.Screen name="Minha Conta" component={telaUser} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </View>
   );
 }

@@ -7,8 +7,13 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@expo/vector-icons": "^13.0.0",
     "@expo/webpack-config": "^0.17.0",
+    "@mui/icons-material": "^5.10.9",
+    "@mui/material": "^5.10.9",
+    "@mui/styled-engine-sc": "^5.10.6",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.1",
     "expo": "~46.0.13",
@@ -18,12 +23,14 @@
     "react-dom": "18.0.0",
     "react-is": "^16.8.0",
     "react-native": "0.69.6",
+    "react-native-chart-kit": "^6.12.0",
     "react-native-elements": "*",
     "react-native-paper": "4.9.2",
     "react-native-safe-area-context": "4.3.1",
     "react-native-screens": "~3.15.0",
+    "react-native-svg": "^13.4.0",
     "react-native-web": "~0.18.7",
-    "styled-components": "*"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
