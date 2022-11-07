@@ -18,7 +18,7 @@ const Header = ({ title, navigation, isLoggedIn = true, children }) => {
                             color="inherit"
                             aria-label="menu"
                             sx={{ mr: 2 }}
-                            onClick={() => navigation.goBack()}
+                            onClick={() => console.log('42')}
                         >
                             <MenuIcon />
                         </IconButton>
