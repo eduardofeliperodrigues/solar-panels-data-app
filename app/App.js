@@ -11,7 +11,7 @@ export default function App() {
   return (
     <View>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Minha Conta">
+        <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Login" component={Login}
             options={{ headerTintColor: "purple" }}>
           </Stack.Screen>
