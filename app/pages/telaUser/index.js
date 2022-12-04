@@ -1,33 +1,58 @@
-import { React, useState, useEffect } from 'react';
+import { Divider } from '@mui/material';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { React, useEffect, useState } from 'react';
+import BarChart from '../../components/BarChart';
 import Header from '../../components/Header';
 import Select from '../../components/Select';
-import BarChart from '../../components/BarChart';
-import { MOCK_USER, MOCK_TYPE_USER } from '../../mock';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const User = () => {
-    const [user, setUser] = useState(null);
+    const [selected, setSelected] = useState('')
+    const [user, setUser] = useState()
+    const [loading, setLoading] = useState(true)
+    const [chart, setChart] = useState()
 
-    const Buscar = async (chave)=>{
+    const Buscar = async (chave) => {
         const valor = await AsyncStorage.getItem(chave)
-        console.log(valor)
+        setUser(JSON.parse(valor));
     }
 
     useEffect(() => {
-        // chamada para api, que retorna o tipo de usuario
-        //simulaçao chamada api
         Buscar(`@usuario`);
-        const userLogged = MOCK_USER;
-        setUser(userLogged);
     }, []);
+
+    useEffect(() => {
+        if (!user) return
+        if (user.tpAcesso == 'M') setChart(user.listUser[0])
+        setLoading(false)
+    }, [user])
+
+    const handleChange = (event) => {
+        setSelected(event.target.value)
+    }
+
+    useEffect(() => {
+        if (!user || !selected) return;
+
+        const selectedUser = user.listUser.find((element) => element.label == selected)
+        setChart(selectedUser)
+    }, [selected, user])
+
+
 
     return (
         <Header title="Minha Conta" >
-            <h1>{user?.type} | {user?.name}</h1>
-            <Select list={MOCK_TYPE_USER} />
-            {user?.charts.map((element, index) => (<BarChart key={index} data={element} />))}
-
-        </Header>
+            {!loading && user ? (
+                <>
+                    <h1>{user.tpAcesso == 'M' ? 'Morador' : user?.tpAcesso == 'S' ? 'Sindico' : 'Administrador'}</h1>
+                    {user.tpAcesso != 'M' && (<>
+                        <p>Selecione um tipo de usuario</p>
+                        < Select list={user.listSelect} handleChange={handleChange} selected={selected} /></>)}
+                    <Divider />
+                    {chart && (<BarChart data={chart} />)}
+                </>
+            ) : <p>Carregando</p>
+            }
+        </Header >
     );
 }
 

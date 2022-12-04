@@ -7,12 +7,7 @@ import { Select as MUISelect } from '@mui/material';
 
 
 
-export default function Select({ list }) {
-    const [selected, setSelected] = React.useState('');
-
-    const handleChange = (event) => {
-        setSelected(event.target.value);
-    };
+export default function Select({ list, handleChange, selected }) {
 
     return (
         <Box sx={{ minWidth: 120 }}>
@@ -23,9 +18,9 @@ export default function Select({ list }) {
                     id="select"
                     value={selected}
                     label="Condominio..."
-                    onChange={handleChange}
+                    onChange={(event) => { handleChange(event) }}
                 >
-                    {list.map((element, index) => (
+                    {list?.map((element, index) => (
                         <MenuItem key={index} value={element}>{element}</MenuItem>
                     ))}
                 </MUISelect>
