@@ -4,8 +4,9 @@ import { React, useEffect, useState } from 'react';
 import BarChart from '../../components/BarChart';
 import Header from '../../components/Header';
 import Select from '../../components/Select';
+import { Button } from 'react-native';
 
-const User = () => {
+const User = ({ navigation }) => {
     const [selected, setSelected] = useState('')
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
@@ -37,10 +38,12 @@ const User = () => {
         setChart(selectedUser)
     }, [selected, user])
 
-
+    const onPress = () => {
+        navigation.navigate('ApiYohan')
+    }
 
     return (
-        <Header title="Minha Conta" >
+        <Header title="Minha Conta" goback={true} navigation={navigation}>
             {!loading && user ? (
                 <>
                     <h1>{user.tpAcesso == 'M' ? 'Morador' : user?.tpAcesso == 'S' ? 'Sindico' : 'Administrador'}</h1>
@@ -49,6 +52,12 @@ const User = () => {
                         < Select list={user.listSelect} handleChange={handleChange} selected={selected} /></>)}
                     <Divider />
                     {chart && (<BarChart data={chart} />)}
+                    <Button
+                        onPress={onPress}
+                        title="Ver Economia"
+                        color="#7B61FF"
+                        accessibilityLabel="Learn more about this purple button"
+                    />
                 </>
             ) : <p>Carregando</p>
             }

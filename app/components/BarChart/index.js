@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { Text, View, Image, TextInput, Button, TouchableOpacity } from 'react-native';
-
 import { Chart } from './styles';
+// {label: String;
+// chart: string[]}
 
 const BarChart = ({ data }) => {
     return (<View style={{ width: '100%' }}>

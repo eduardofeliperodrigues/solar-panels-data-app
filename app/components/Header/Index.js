@@ -4,24 +4,27 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as S from "./styles";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
-const Header = ({ title, navigation, isLoggedIn = true, children }) => {
+const Header = ({ title, navigation, goback, children }) => {
     return (
         <>
             <S.Header sx={{ flexGrow: 1 }}>
                 <AppBar>
                     <Toolbar>
+                        {goback && (
+                            <IconButton
+                                size="large"
+                                edge="start"
+                                color="inherit"
+                                aria-label="menu"
+                                sx={{ mr: 2 }}
+                                onClick={() => navigation.goBack()}
+                            >
+                                <ArrowBackIosIcon />
+                            </IconButton>
+                        )}
 
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            sx={{ mr: 2 }}
-                            onClick={() => console.log('42')}
-                        >
-                            <MenuIcon />
-                        </IconButton>
 
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             Sunner | {title}

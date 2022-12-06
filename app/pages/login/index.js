@@ -62,15 +62,15 @@ export default function Login({ navigation }) {
   }
 
   const verificarDados = () => {
-    if (usuario == 'morador' && senha == '123456') {
+    if (usuario == 'morador' && senha == '123') {
       gravar(acessoMorador)
       navigation.navigate('Minha Conta')
     }
-    else if ((usuario == 'sindico') && senha == '123456') {
+    else if ((usuario == 'sindico') && senha == '123') {
       gravar(acessoAdminSindico)
       navigation.navigate('Minha Conta')
     }
-    else if ((usuario == 'admin') && senha == '123456') {
+    else if ((usuario == 'admin') && senha == '123') {
       gravar(acessoAdminAdministrador)
       navigation.navigate('Minha Conta')
     }

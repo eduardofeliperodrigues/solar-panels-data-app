@@ -4,11 +4,11 @@ const defaultHeaders = {
     'Content-Type': 'application/json',
 };
 
-const baseUrl = 'https://data-show-solar-panels-g35sbyt74q-uc.a.run.app';
+const baseUrl = 'https://flask-api-upx06.web.app/';
 
-export async function post(url, data) {
+export async function post(url, payload) {
     try {
-        const response = await axios.post(`${baseUrl}${url}`, { ...data }, { defaultHeaders });
+        const response = await axios.post(`${baseUrl}${url}`, { ...payload }, { defaultHeaders });
         return response.data;
     } catch (error) {
         const errorResponse = error.response.data;

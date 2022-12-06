@@ -5,6 +5,7 @@ import CriarConta from './pages/login/criarConta';
 import Login from './pages/login/index';
 import telaUser from './pages/telaUser';
 import { View } from "react-native";
+import apiYohan from './pages/apiyohan/apiYohan'
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -19,6 +20,7 @@ export default function App() {
             options={{ headerTintColor: "purple" }}>
           </Stack.Screen>
           <Stack.Screen name="Minha Conta" component={telaUser} />
+          <Stack.Screen name="ApiYohan" component={apiYohan} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
